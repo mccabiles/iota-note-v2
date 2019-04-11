@@ -8,7 +8,7 @@
       </v-toolbar>
 
       <v-card-text>
-        <note-form />
+        <note-form :note="note" @on:save="onSave"/>
       </v-card-text>
     </v-card>
   </v-dialog>
@@ -16,6 +16,13 @@
 
 <script>
 import NoteForm from '@/components/NoteForm'
+
+class Note {
+  constructor() {
+    this.title = "New Title";
+    this.body = "";
+  }
+}
 
 export default {
   name: 'NoteCreateView',
@@ -25,6 +32,25 @@ export default {
 
   props: {
     value: Boolean
-  }
+  },
+
+  data() {
+    return {
+      note: new Note(),
+    }
+  },
+
+  watch: {
+    value(val) {
+      this.note = new Note();
+    }
+  },
+
+  methods: {
+    onSave(note) {
+      this.note = note;
+      // save to storage
+    }
+  },
 }
 </script>

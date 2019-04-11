@@ -2,6 +2,7 @@
   <v-form>
     <v-text-field label="Title" :hint="titleHint" v-model="noteData.title"/>
     <v-textarea label="Notes" :hint="bodyHint" v-model="noteData.body"/>
+    <v-btn color="primary" @click="$emit('on:save', noteData)"> Save Note </v-btn>
   </v-form>
 </template>
 
