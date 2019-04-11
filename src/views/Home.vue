@@ -1,13 +1,20 @@
 <template>
-  <HelloWorld />
+  <v-app>
+    <app-toolbar/>
+    <app-navigation/>
+    <v-content>
+      <router-view/>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
-
+import AppToolbar from '@/components/AppToolbar'
+import AppNavigation from '@/components/AppNavigation'
   export default {
     components: {
-      HelloWorld
+      AppNavigation,
+      AppToolbar,
     }
   }
 </script>
