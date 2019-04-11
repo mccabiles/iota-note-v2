@@ -3,7 +3,7 @@
     <v-list>
       <template v-for="(link, i) in links" >
         <v-spacer v-if="link.spacer" :key="i"/>
-        <v-list-tile v-else :key="i">
+        <v-list-tile v-else :key="i" :to="link.to">
           {{ link.text }}
         </v-list-tile>
       </template>
@@ -13,7 +13,7 @@
 
 <script>
 const links = [
-  { text: 'My Notes', link: { name: 'home' } },
+  { text: 'My Notes', to: { name: 'index' } },
   { text: 'Formatting Guide' },
   { text: 'How It Works' },
   { spacer: true },
