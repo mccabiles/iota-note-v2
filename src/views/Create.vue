@@ -16,13 +16,7 @@
 
 <script>
 import NoteForm from '@/components/NoteForm'
-
-class Note {
-  constructor() {
-    this.title = "New Title";
-    this.body = "";
-  }
-}
+import Note from '@/models/Note'
 
 export default {
   name: 'NoteCreateView',
@@ -41,15 +35,14 @@ export default {
   },
 
   watch: {
-    value(val) {
+    value() {
       this.note = new Note();
     }
   },
 
   methods: {
     onSave(note) {
-      this.note = note;
-      // save to storage
+      this.$store.dispatch('notes/saveNote', note);
     }
   },
 }

@@ -7,12 +7,7 @@
 </template>
 
 <script>
-class Note {
-  constructor() {
-    this.title = "New Note";
-    this.body = "";
-  }
-}
+import Note from '@/models/Note'
 
 export default {
   name: 'NoteForm',
