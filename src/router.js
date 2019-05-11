@@ -18,7 +18,18 @@ export default new Router({
           name: 'index',
           component: Index,
         },
+        {
+          path: 'notes/:id',
+          name: 'view.note',
+          component: () => import('./views/notes/_id.vue'),
+          props: true,
+        }
       ],
+    },
+    {
+      path: 'formatting-guide',
+      name: 'formatting-guide',
+      // component: () => import('./views/Markdown.vue'),
     },
     {
       path: '/about',
@@ -27,6 +38,6 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+    },
   ]
 })
